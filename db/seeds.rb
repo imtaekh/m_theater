@@ -88,19 +88,32 @@
 #   has_and_belongs_to_many :theater
 # end
 
-user=User.new
-user.email="admin@mtheater.com"
-user.password="admin"
-user.first_name="admin"
-user.access_level=10
-user.save
+# user=User.new
+# user.email="admin@mtheater.com"
+# user.password="admin"
+# user.first_name="admin"
+# user.access_level=10
+# user.save
+#
+# names = ["Addison", "Ben", "Christine", "Chloe", "Cris", "Dane", "David", "Emily", "Imtaek", "Jack", "Jesse", "Jonathan", "Pericles", "Peter", "Philippe", "Sergio", "Simon", "Tali", "Tavo", "Trevor"]
+# names.each do |name|
+#   user=User.new
+#   user.email="#{name}@mtheater.com"
+#   user.password="#{name}"
+#   user.first_name="#{name}"
+#   user.access_level=0
+#   user.save
+# end
 
-names = ["Addison", "Ben", "Christine", "Chloe", "Cris", "Dane", "David", "Emily", "Imtaek", "Jack", "Jesse", "Jonathan", "Pericles", "Peter", "Philippe", "Sergio", "Simon", "Tali", "Tavo", "Trevor"]
-names.each do |name|
-  user=User.new
-  user.email="#{name}@mtheater.com"
-  user.password="#{name}"
-  user.first_name="#{name}"
-  user.access_level=0
-  user.save
+movies = [
+  ["Jurassic World","135397","lP-sUUUfamw"],
+  ["Minions","211672","eisKxhjBnZ0"],
+  ["Ant-Man","102899","pWdKf3MneyI"],
+  ["Terminator Genisys","87101","je73b_9JdR0"],
+  ["Ted 2","214756","S3AVcCggRnU"],
+  ["Inside Out","150540","_MC3XuMvsDI"],
+  ["Pixels","257344","XAHprLW48no"]
+]
+movies.each do |movie|
+  Movie.create(title:movie[0],tmdb_num:movie[1],youtube_num:movie[2])
 end
