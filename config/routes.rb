@@ -1,32 +1,23 @@
 Rails.application.routes.draw do
+  $TMDB_API_KEY = ENV["TMDB_API_KEY"]
+  
+  root 'home#index'
+
   get 'movies/index'
-
   get 'movies/show'
-
   get 'movies/create'
-
   get 'movies/update'
-
   get 'movies/destroy'
 
-  get 'home/index'
-
   get 'admins/movies'
-
   get 'admins/manage'
-
   get 'admins/statistics'
-
   get 'admins/orders'
 
   get 'movies/index'
-
   get 'movies/show'
-
   get 'movies/create'
-
   get 'movies/update'
-
   get 'movies/destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
