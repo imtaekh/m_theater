@@ -1,2 +1,33 @@
 <h1>Admins#movies</h1>
-<p>Find me in app/views/admins/movies.html.erb</p>
+
+  <table>
+    <tr>
+      <td class="movie_title">Title</td>
+      <td class="date">From</td>
+      <td class="date">To</td>
+      <td></td>
+    </tr>
+  </table>
+  <div class="movies_table">
+    <% @movies.each do |movie| %>
+    <table class="movie_row" movieid="<%= movie.id %>">
+    <tr>
+      <td class="movie_title"><%= movie.title %></td>
+      <td class="date"><%= movie.date_from %></td>
+      <td class="date"><%= movie.date_to %></td>
+      <td></td>
+    </tr>
+  </table>
+    <div class="movie_update update<%= movie.id %>">
+      <h1>update here</h1>
+    </div>
+    <% end %>
+    <table class="last_table"><tr><td></td></tr></table>
+</div>
+<script>
+  $(function(){
+   $(".movie_row").click(function(){
+     $(".update"+this.attributes.movieid.value).slideToggle("slow", function(){});
+   });
+  });
+</script>

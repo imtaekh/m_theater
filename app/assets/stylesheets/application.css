@@ -16,9 +16,6 @@
 body{
   background: #ffffff url('layout_bg.png') no-repeat left top;
 }
-.flash{
-
-}
 header{
   position: relative;
   width: 800px;
@@ -69,4 +66,38 @@ nav a:link{
 }
 header .logo{
   height: 60px;
+}
+.movies_table{
+  height:300px;
+  overflow-x: hidden;
+  overflow: scroll;
+  border: 1px solid black;
+}
+table{
+  width: 100%;
+  border: 1px solid black;
+  border-bottom:none;
+}
+td{
+  padding: 10px;
+}
+table .movie_title {
+  width:300px;
+}
+table .date {
+  width:100px;
+}
+.movie_update{
+  display:none;
+}
+.movie_row{
+  border-left:none;
+  border-right:none;
+  -moz-transition: background-color 1s;
+  -ms-transition: background-color 1s;
+  -o-transition: background-color 1s;
+  -webkit-transition: background-color 1s;
+}
+.movie_row:hover{
+  background-color: rgba(0, 0, 0, 0.3);
 }
