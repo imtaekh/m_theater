@@ -1,2 +1,6 @@
 <h1>Home#index</h1>
 <p>Find me in app/views/home/index.html.erb</p>
+<% @movies.each do |movie| %>
+  <% data = HTTParty.get "https://api.themoviedb.org/3/movie/#{movie.tmdb_num}?api_key=#{$TMDB_API_KEY}" %>
+  <img src="https://image.tmdb.org/t/p/w185<%= data["poster_path"] %>"><br>
+<% end %>
