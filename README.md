@@ -1,10 +1,11 @@
 #Welcome to M-Theater!
 M-Thater is a pretend theater app.<br>
 as a customer, you can signup, login, buy tickets, cancel tickets and see purchase history.<br>
-as a admin, you can add movie, make schedules, manage price and so on.<br>
+as a admin, you can add movies, make schedules, manage prices and so on.<br>
 <br>
 ##Wire Frame
 ![wire frame](src_readme/wire_frame.png)<br>
+"right click" -> "open image on new tab" to see original size image(google chrome)<br>
 
 ##ERD
 ![ERD](src_readme/erd.png)<br>
