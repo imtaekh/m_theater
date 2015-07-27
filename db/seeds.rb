@@ -87,3 +87,20 @@
 # class Theater_type < ActiveRecord::Base
 #   has_and_belongs_to_many :theater
 # end
+
+user=User.new
+user.email="admin@mtheater.com"
+user.password="admin"
+user.first_name="admin"
+user.access_level=10
+user.save
+
+names = ["Addison", "Ben", "Christine", "Chloe", "Cris", "Dane", "David", "Emily", "Imtaek", "Jack", "Jesse", "Jonathan", "Pericles", "Peter", "Philippe", "Sergio", "Simon", "Tali", "Tavo", "Trevor"]
+names.each do |name|
+  user=User.new
+  user.email="#{name}@mtheater.com"
+  user.password="#{name}"
+  user.first_name="#{name}"
+  user.access_level=0
+  user.save
+end
