@@ -1,6 +1,28 @@
 <h1>Home#index</h1>
 <p>Find me in app/views/home/index.html.erb</p>
 <% @movies.each do |movie| %>
-  <% data = HTTParty.get "https://api.themoviedb.org/3/movie/#{movie.tmdb_num}?api_key=#{$TMDB_API_KEY}" %>
-  <img src="https://image.tmdb.org/t/p/w185<%= data["poster_path"] %>"><br>
+  <img src="https://image.tmdb.org/t/p/w185<%= movie.tmdb_poster %>"><br>
 <% end %>
+
+
+
+<!-- <div id="myAJAX"></div>
+<script>
+var myDiv;
+$(document).ready(function(){
+  myDiv= document.getElementById("myAJAX");
+<% @movies.each do |movie| %>
+  $.ajax({
+    url:"https://api.themoviedb.org/3/movie/<%=movie.tmdb_num%>?api_key=<%=$TMDB_API_KEY%>",
+    method: "GET"
+  }).done(function(myData){
+    $(myDiv).append("<img src='https://image.tmdb.org/t/p/w185" + myData["poster_path"] +"/'><br>");
+    console.log(myData["original_title"]);
+  }).error(function(){
+    console.log("something went wrong");
+  });
+<% end %>
+
+
+});
+</script> -->

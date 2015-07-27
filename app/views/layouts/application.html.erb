@@ -9,16 +9,26 @@
 </head>
 <body>
 <header>
+  <%= image_tag "logo.png", class: "logo" %>
   <nav>
     <ul>
-      <li>Movies :</li>
-      <li>Buy Ticket :</li>
-      <li>Sign In :</li>
-      <li>Login</li>
+      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to "Movies", admins_movies_path %></li>
+      <li><a href="#">Buy Ticket</a></li>
+      <li><a href="#">Sign In</a></li>
+      <li><a href="#">Login</a></li>
     </ul>
   </nav>
 </header>
+<div class="yield">
+  <h3 class="flash">
+    <% flash.each do |k, v| %>
+      <%= v %>
+    <% end %>
+  <h3>
 <%= yield %>
+</div>
+
 
 </body>
 </html>
