@@ -163,3 +163,20 @@ header .logo{
 section{
   margin-bottom: 50px;
 }
+
+
+
+
+.movie_show .left_side{
+  float: left;
+  padding:10px;
+}
+
+.movie_show .body{
+  width: 570px;
+  float: left;
+  margin: 10px;
+}
+.movie_show .tagline{
+  text-align: center;
+}

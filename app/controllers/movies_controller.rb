@@ -4,6 +4,7 @@ class MoviesController < ApplicationController
 
   def show
     @movie=Movie.find(params[:id])
+      @data = HTTParty.get "https://api.themoviedb.org/3/movie/#{@movie.tmdb_num}?api_key=#{$TMDB_API_KEY}"
   end
 
   def create

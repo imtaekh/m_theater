@@ -1,6 +1,13 @@
-<h1>Movies#show</h1>
+<h1><%=@movie.title%></h1>
 <section class="movie_show">
-  <div>
+  <div class="left_side">
   <%= image_tag "https://image.tmdb.org/t/p/w185#{@movie.tmdb_poster}" %>
+  </div>
+  <div class="body">
+    <% unless @data["tagline"] == "" %>
+    <h2 class="tagline">"<%=@data["tagline"]%>"</h2>
+    <% end %>
+    <h3>Overview</h3>
+    <p><%=@data["overview"]%></p>
   </div>
 </section>

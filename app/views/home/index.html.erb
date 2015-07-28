@@ -7,7 +7,7 @@
 
 <h2>Coming Soon</h2>
 <% @comming_soon.each do |movie| %>
-    <img src="https://image.tmdb.org/t/p/w185<%= movie.tmdb_poster %>">
+    <%= link_to (image_tag "https://image.tmdb.org/t/p/w185#{movie.tmdb_poster}"), movie_path(movie) %>
 <% end %>
 
 
