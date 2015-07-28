@@ -1,6 +1,7 @@
 class AdminsController < ApplicationController
   def movies
-    @movies=Movie.all
+    @movies=Movie.order('title ASC')
+    @movie=Movie.new
   end
 
   def manage

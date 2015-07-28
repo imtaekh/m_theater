@@ -1,13 +1,15 @@
 Rails.application.routes.draw do
   $TMDB_API_KEY = ENV["TMDB_API_KEY"]
-  
+
   root 'home#index'
 
-  get 'movies/index'
-  get 'movies/show'
-  get 'movies/create'
-  get 'movies/update'
-  get 'movies/destroy'
+  resources :movies
+  # get 'movies/index'
+  # get 'movies/show'
+  # get 'movies/new'
+  # post 'movies'=>'movies#create', as: :create_movie
+  # patch 'movies/:id'=>'movies#update', as: :update_movie
+  # get 'movies/destroy'
 
   get 'admins/movies'
   get 'admins/manage'

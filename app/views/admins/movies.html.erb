@@ -1,6 +1,6 @@
 <h1>Admins#movies</h1>
-
-  <table>
+<section class="movie_manage">
+  <table class="data_column_names">
     <tr>
       <td class="movie_title">Title</td>
       <td class="date">From</td>
@@ -8,26 +8,93 @@
       <td></td>
     </tr>
   </table>
-  <div class="movies_table">
+  <div class="data_body">
     <% @movies.each do |movie| %>
-    <table class="movie_row" movieid="<%= movie.id %>">
-    <tr>
-      <td class="movie_title"><%= movie.title %></td>
-      <td class="date"><%= movie.date_from %></td>
-      <td class="date"><%= movie.date_to %></td>
-      <td></td>
-    </tr>
-  </table>
-    <div class="movie_update update<%= movie.id %>">
-      <h1>update here</h1>
+    <table class="data_row movie" id="<%= movie.id %>">
+      <tr>
+        <td class="movie_title"><%= movie.title %></td>
+        <td class="date"><%= movie.date_from %></td>
+        <td class="date"><%= movie.date_to %></td>
+        <td></td>
+      </tr>
+    </table>
+    <div class="hidden_div" id="update<%= movie.id %>">
+      <div class="poster">
+        <img src="https://image.tmdb.org/t/p/w185<%= movie.tmdb_poster %>">
+
+        <% unless movie.youtube_num=="" %>
+          <%= link_to "Trailer", "https://www.youtube.com/watch?v=#{movie.youtube_num}", target:"_blank" %>
+        <% end %>
+      </div>
+      <%= form_for movie do |f| %>
+      <div class="form_row">
+        <%= f.label "TMDB ID"%>
+        <%= f.text_field :tmdb_num %>
+      </div>
+      <div class="form_row">
+        <%= f.label "YOUTUBE ID"%>
+        <%= f.text_field :youtube_num %><br>
+      </div>
+      <div class="form_row">
+        <%= f.label "From"%>
+        <%= f.date_field :date_from %>
+      </div>
+      <div class="form_row">
+        <%= f.label "To"%>
+        <%= f.date_field :date_to %>
+      </div>
+      <% end %>
+      <div class="form_button">
+        <%= submit_tag "UPDATE", form:"edit_movie_#{movie.id}" %>
+        <%= button_to 'DELETE', movie, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
     </div>
     <% end %>
-    <table class="last_table"><tr><td></td></tr></table>
-</div>
+    <table class="data_row add" id="add_movie"><tr>
+      <td>: : ADD NEW MOVIE : :</td></tr>
+    </table>
+    <div class="hidden_div" id="new_movie">
+      <%= form_for @movie do |f| %>
+      <div class="form_row">
+        <%= f.label "TMDB ID"%>
+        <%= f.text_field :tmdb_num %>
+      </div>
+      <div class="form_row">
+        <%= f.label "YOUTUBE ID"%>
+        <%= f.text_field :youtube_num %><br>
+      </div>
+      <div class="form_row">
+        <%= f.label "From"%>
+        <%= f.date_field :date_from %>
+      </div>
+      <div class="form_row">
+        <%= f.label "To"%>
+        <%= f.date_field :date_to %>
+      </div>
+      <div class="form_button">
+        <%= f.submit "CREATE MOVIE"%>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</section>
 <script>
   $(function(){
-   $(".movie_row").click(function(){
-     $(".update"+this.attributes.movieid.value).slideToggle("slow", function(){});
-   });
+    $(".movie").click(function(){
+      if ($("#update"+this.id)[0].style.display == "block"){
+        $("#update"+this.id).slideToggle("slow", function(){});
+      } else {
+        $(".hidden_div").slideUp("slow", function(){});
+          $("#update"+this.id).slideToggle("slow", function(){});
+      }
+    });
+    $("#add_movie").click(function(){
+      if ($("#new_movie")[0].style.display == "block"){
+        $("#new_movie").slideToggle("slow", function(){});
+      } else {
+        $(".hidden_div").slideUp("slow", function(){});
+        $("#new_movie").slideToggle("slow", function(){});
+      }
+    });
   });
 </script>
