@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'show_times/create'
+
   $TMDB_API_KEY = ENV["TMDB_API_KEY"]
 
   root 'home#index'
@@ -11,7 +13,10 @@ Rails.application.routes.draw do
   # patch 'movies/:id'=>'movies#update', as: :update_movie
   # get 'movies/destroy'
 
+  post 'show_times/by_movie'=>'show_times#create_by_movie'
+
   get 'admins/movies'
+  get 'admins/show_times'
   get 'admins/manage'
   get 'admins/statistics'
   get 'admins/orders'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150727174612) do
+ActiveRecord::Schema.define(version: 20150728175636) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -106,11 +106,12 @@ ActiveRecord::Schema.define(version: 20150727174612) do
   create_table "theaters", force: :cascade do |t|
     t.string   "name"
     t.integer  "num_of_seats"
-    t.text     "seats_arry"
+    t.text     "seats_array"
     t.date     "date_from"
     t.date     "date_to"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.boolean  "is_available"
   end
 
   create_table "tickets", force: :cascade do |t|

@@ -13,6 +13,15 @@
  *= require_tree .
  *= require_self
  */
+select{
+   background: white;
+   width: 100px;
+   padding: 3px;
+   font-size: 16px;
+   border: 1px solid #cccccc;
+   border-radius: 5px;
+   -webkit-appearance: none;
+}
 .button_to{
   display: inline-block;
 }
@@ -90,33 +99,33 @@ header .logo{
 
 
 
-.movie_manage .data_body{
+.manage_movie .data_body{
   overflow-x: hidden;
   overflow: scroll;
   border: 1px solid black;
 }
-.movie_manage .data_column_names{
+.manage_movie .data_column_names{
   width: 100%;
   border: 1px solid black;
   border-bottom:none;
 }
-.movie_manage td{
+.manage_movie td{
   padding: 10px;
 }
-.movie_manage .movie_title {
+.manage_movie .movie_title {
   width:300px;
 }
-.movie_manage .date {
+.manage_movie .date {
   width:100px;
 }
-.movie_manage .hidden_div{
+.manage_movie .hidden_div{
   display:none;
 }
-.movie_manage label{
+.manage_movie label{
   display: inline-block;
   width: 80px;
 }
-.movie_manage .data_row{
+.manage_movie .data_row{
   width: 100%;
   border-top: 1px solid black;
   -moz-transition: background-color 1s;
@@ -124,40 +133,47 @@ header .logo{
   -o-transition: background-color 1s;
   -webkit-transition: background-color 1s;
 }
-.movie_manage .data_row:hover{
+.manage_movie .data_row:hover{
   background-color: rgba(0, 0, 0, 0.3);
 }
-.movie_manage .form_row{
+.manage_movie .form_row{
+  font-size: 15px;
+  padding: 10px;
+}
+.manage_movie .form_item{
   font-size: 15px;
   display:inline-block;
   padding: 10px;
   width:35%;
 }
-.movie_manage .form_button{
+.manage_movie .form_button{
   text-align: center;
   padding: 10px;
 }
-.movie_manage .poster{
+.manage_movie .poster{
   float:left;
 }
-.movie_manage .poster img{
+.manage_movie .poster img{
   margin-left: 10px;
   width:80px;
   height:120px;
 }
-.movie_manage .youtube_link{
+.manage_movie .times{
+  width: 400px;
+}
+.manage_movie .youtube_link{
   width:80px;
   height:120px;
   display: inline-block;
   border: 1px solid #A8A8A8 ;
 }
-.movie_manage .add{
+.manage_movie .add{
   text-align: center;
 }
-.movie_manage input{
+.manage_movie input{
   width: 180px;
 }
-.movie_manage #new_movie{
+.manage_movie #new_movie{
   text-align: center;
 }
 section{

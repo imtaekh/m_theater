@@ -8,7 +8,7 @@
 # rails g model show_time date_on:date time_at:time is_confirmed:boolean is_canceled:boolean
 # rails g model movie title:string tmdb_num:string tmdb_poster:string youtube_num:string date_from:date date_to:date is_confirmed:boolean is_canceled:boolean
 # rails g model movie_type type:string
-# rails g model theater name:string num_of_seats:integer seats_arry:text date_from:date date_to:date
+# rails g model theater name:string num_of_seats:integer seats_array:text is_available:boolean date_from:date date_to:date
 # rails g model theater_type type:string
 # rails g migration add_user_to_orders user:references
 # rails g migration add_order_to_tickets order:references

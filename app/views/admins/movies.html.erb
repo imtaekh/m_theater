@@ -1,5 +1,5 @@
 <h1>Admins#movies</h1>
-<section class="movie_manage">
+<section class="manage_movie">
   <table class="data_column_names">
     <tr>
       <td class="movie_title">Title</td>
@@ -27,19 +27,19 @@
         <% end %>
       </div>
       <%= form_for movie do |f| %>
-      <div class="form_row">
+      <div class="form_item">
         <%= f.label "TMDB ID"%>
         <%= f.text_field :tmdb_num %>
       </div>
-      <div class="form_row">
+      <div class="form_item">
         <%= f.label "YOUTUBE ID"%>
         <%= f.text_field :youtube_num %><br>
       </div>
-      <div class="form_row">
+      <div class="form_item">
         <%= f.label "From"%>
         <%= f.date_field :date_from %>
       </div>
-      <div class="form_row">
+      <div class="form_item">
         <%= f.label "To"%>
         <%= f.date_field :date_to %>
       </div>
@@ -55,19 +55,19 @@
     </table>
     <div class="hidden_div" id="new_movie">
       <%= form_for @movie do |f| %>
-      <div class="form_row">
+      <div class="form_item">
         <%= f.label "TMDB ID"%>
         <%= f.text_field :tmdb_num %>
       </div>
-      <div class="form_row">
+      <div class="form_item">
         <%= f.label "YOUTUBE ID"%>
         <%= f.text_field :youtube_num %><br>
       </div>
-      <div class="form_row">
+      <div class="form_item">
         <%= f.label "From"%>
         <%= f.date_field :date_from %>
       </div>
-      <div class="form_row">
+      <div class="form_item">
         <%= f.label "To"%>
         <%= f.date_field :date_to %>
       </div>
@@ -78,23 +78,4 @@
     </div>
   </div>
 </section>
-<script>
-  $(function(){
-    $(".movie").click(function(){
-      if ($("#update"+this.id)[0].style.display == "block"){
-        $("#update"+this.id).slideToggle("slow", function(){});
-      } else {
-        $(".hidden_div").slideUp("slow", function(){});
-          $("#update"+this.id).slideToggle("slow", function(){});
-      }
-    });
-    $("#add_movie").click(function(){
-      if ($("#new_movie")[0].style.display == "block"){
-        $("#new_movie").slideToggle("slow", function(){});
-      } else {
-        $(".hidden_div").slideUp("slow", function(){});
-        $("#new_movie").slideToggle("slow", function(){});
-      }
-    });
-  });
-</script>
+<%= javascript_include_tag 'manage'%>
