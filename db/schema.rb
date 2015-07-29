@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150728175636) do
+ActiveRecord::Schema.define(version: 20150727012811) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,16 +31,17 @@ ActiveRecord::Schema.define(version: 20150728175636) do
   add_index "movie_types_movies", ["movie_type_id", "movie_id"], name: "index_movie_types_movies_on_movie_type_id_and_movie_id", using: :btree
 
   create_table "movies", force: :cascade do |t|
+    t.string   "title"
     t.string   "tmdb_num"
+    t.string   "tmdb_poster"
     t.string   "youtube_num"
+    t.integer  "runtime"
     t.date     "date_from"
     t.date     "date_to"
     t.boolean  "is_confirmed"
     t.boolean  "is_canceled"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.string   "title"
-    t.string   "tmdb_poster"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -76,8 +77,7 @@ ActiveRecord::Schema.define(version: 20150728175636) do
   add_index "seats", ["ticket_id"], name: "index_seats_on_ticket_id", using: :btree
 
   create_table "show_times", force: :cascade do |t|
-    t.date     "date_on"
-    t.time     "time_at"
+    t.datetime "time_at"
     t.boolean  "is_confirmed"
     t.boolean  "is_canceled"
     t.datetime "created_at",   null: false
@@ -105,13 +105,13 @@ ActiveRecord::Schema.define(version: 20150728175636) do
 
   create_table "theaters", force: :cascade do |t|
     t.string   "name"
+    t.boolean  "is_available"
     t.integer  "num_of_seats"
     t.text     "seats_array"
     t.date     "date_from"
     t.date     "date_to"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.boolean  "is_available"
   end
 
   create_table "tickets", force: :cascade do |t|

@@ -2,6 +2,7 @@ class AdminsController < ApplicationController
   def movies
     @movies=Movie.order('title ASC')
     @movie=Movie.new
+    @today=Date.today
   end
 
   def show_times

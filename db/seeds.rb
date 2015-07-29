@@ -5,8 +5,8 @@
 # rails g model ticket is_canceled:boolean
 # rails g model seat num:string
 # rails g model price type:string price:float date_from:date date_to:date is_confirmed:boolean is_available:boolean
-# rails g model show_time date_on:date time_at:time is_confirmed:boolean is_canceled:boolean
-# rails g model movie title:string tmdb_num:string tmdb_poster:string youtube_num:string date_from:date date_to:date is_confirmed:boolean is_canceled:boolean
+# rails g model show_time time_at:datetime is_confirmed:boolean is_canceled:boolean
+# rails g model movie title:string tmdb_num:string tmdb_poster:string youtube_num:string runtime:integer date_from:date date_to:date is_confirmed:boolean is_canceled:boolean
 # rails g model movie_type type:string
 # rails g model theater name:string num_of_seats:integer seats_array:text is_available:boolean date_from:date date_to:date
 # rails g model theater_type type:string
@@ -105,18 +105,26 @@
 #   user.save
 # end
 
-# movies = [
-#   ["Jurassic World","135397","lP-sUUUfamw"],
-#   ["Minions","211672","eisKxhjBnZ0"],
-#   ["Ant-Man","102899","pWdKf3MneyI"],
-#   ["Terminator Genisys","87101","je73b_9JdR0"],
-#   ["Ted 2","214756","S3AVcCggRnU"],
-#   ["Inside Out","150540","_MC3XuMvsDI"],
-#   ["Pixels","257344","XAHprLW48no"]
-# ]
-# movies.each do |movie|
-#   Movie.create(title:movie[0],tmdb_num:movie[1],youtube_num:movie[2])
-#   data = HTTParty.get "https://api.themoviedb.org/3/movie/#{movie.tmdb_num}?api_key=#{$TMDB_API_KEY}"
-#   movie.tmdb_poster=data["poster_path"]
-#   movie.save
-# end
+movies = [
+  ["Jurassic World","135397","lP-sUUUfamw",-50],
+  ["Minions","211672","eisKxhjBnZ0",-5],
+  ["Ant-Man","102899","pWdKf3MneyI",-10],
+  ["Terminator Genisys","87101","je73b_9JdR0",-15],
+  ["Ted 2","214756","S3AVcCggRnU",5],
+  ["Inside Out","150540","_MC3XuMvsDI",10],
+  ["Pixels","257344","XAHprLW48no",15]
+]
+movies.each do |movie|
+  today = Date.today
+  data = HTTParty.get "https://api.themoviedb.org/3/movie/#{movie[1]}?api_key=#{$TMDB_API_KEY}"
+  Movie.create(title:movie[0],tmdb_num:movie[1],youtube_num:movie[2],tmdb_poster:data["poster_path"],runtime:data["runtime"],date_from:today+movie[3],date_to:today+movie[3]+30)
+end
+theaters=[
+  ["1","1A,1B,1C,1D,1E,1F,1G,2A,2B,2C,2D,2E,2F,2G,3A,3B,3C,3D,3E,3F,3G,4A,4B,4C,4D,4E,4F,4G"],
+  ["2","1A,1B,1C,1D,1E,1F,1G,2A,2B,2C,2D,2E,2F,2G,3A,3B,3C,3D,3E,3F,3G"],
+  ["3","1A,1B,1C,1D,1E,1F,2A,2B,2C,2D,2E,2F,3A,3B,3C,3D,3E,3F,4A,4B,4C,4D,4E,4F"],
+  ["4","1A,1B,1C,1D,1E,1F,2A,2B,2C,2D,2E,2F,3A,3B,3C,3D,3E,3F"]
+]
+theaters.each do |theater|
+  Theater.create(name:theater[0],seats_array:theater[1])
+end
