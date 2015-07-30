@@ -10,7 +10,7 @@ class ShowTimesController < ApplicationController
       unless params[date_string.to_sym] == ""
         outer_hash={}
         date_componants=date_string.split("-")
-        time_raw=params[date_string.to_sym].split(/,/)
+        time_raw=params[date_string.to_sym].gsub(/[ ,]/, ',').split(",").select{|x| x.length>0}
         time_array=[]
         time_raw.each do |time_string|
           time_componants=time_string.split(":")
