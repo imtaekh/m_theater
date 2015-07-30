@@ -58,7 +58,7 @@ console.log("JS is running");
         console.log(date_array.toString());
         $("#form_show_times_movie"+this.id).append("<input type='hidden' name='dates' value="+date_array.toString()+">");
         $("#form_show_times_movie"+this.id).append("<input type='hidden' name='theater' value="+$("#theater_option"+this.id).val()+">");
-        $("#form_show_times_movie"+this.id).append("<div class='form_button'><input type='submit' value='CHECK SCHEDULE'></div>");
+        $("#form_show_times_movie"+this.id).append("<div class='form_button'><input type='submit' name='check' value='CHECK SCHEDULE'></div>");
 
       }else{
         alert("Error: Invaild form");

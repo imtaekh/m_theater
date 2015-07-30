@@ -29,20 +29,28 @@
           <td>: : ADD NEW SHOW TIMES : :</td></tr>
         </table>
         <div class="hidden_div" id="new_show_times_movie<%= movie.id %>">
-          <div class="form_row">
+          <div class="form_item">
             <label>From : </label><input type="date" id="show_times_from<%= movie.id %>" value="<%= @today %>">
+          </div>
+          <div class="form_item">
             <label>To : </label><input type="date" id="show_times_to<%= movie.id %>" value="<%= @today+7 %>">
-            <label>Theater : </label><select name="theater" id="theater_option<%= movie.id %>">
+          </div>
+          <div class="form_item">
+            <label>Theater : </label>
+            <select name="theater" id="theater_option<%= movie.id %>">
               <option>Select</option>
               <% @theaters.each do |theater| %>
   					    <option><%= theater.name %></option>
               <% end %>
             </select>
           </div>
+          <div class="form_item">
+          Runtime+Padding(30mins):<span class="runtime"> <%= (movie.runtime+30)/60 %>:<%= ((movie.runtime+30)%60<10)?("0#{(movie.runtime+30)%60}"):((movie.runtime+30)%60) %></span>
+          </div>
           <div class="form_button">
             <input type="button" class="new_show_times_get_dates" id="<%= movie.id %>" value="NEXT">
           </div>
-          <%= form_tag '/show_times/by_movie', method: :post do %>
+          <%= form_tag '/show_times/by_movie', method: :get do %>
           <input type="hidden" name="movie_id" value="<%= movie.id %>">
           <div id="form_show_times_movie<%= movie.id %>"></div>
 

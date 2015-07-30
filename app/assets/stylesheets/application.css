@@ -176,6 +176,9 @@ header .logo{
 .manage_movie #new_movie{
   text-align: center;
 }
+.manage_movie .runtime{
+  font-size: 20px;
+}
 section{
   margin-bottom: 50px;
 }
@@ -219,4 +222,7 @@ section{
 
 .check_create_by_movie .time_comflict{
   color: rgba(255,0,0,1);
+}
+.check_create_by_movie .form_table{
+  border:  1px solid black;
 }
