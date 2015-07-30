@@ -42,7 +42,7 @@
           <div class="form_button">
             <input type="button" class="new_show_times_get_dates" id="<%= movie.id %>" value="NEXT">
           </div>
-            <%= form_tag '/show_times/by_movie', method: :post do %>
+          <%= form_tag '/show_times/by_movie', method: :post do %>
           <input type="hidden" name="movie_id" value="<%= movie.id %>">
           <div id="form_show_times_movie<%= movie.id %>"></div>
 
