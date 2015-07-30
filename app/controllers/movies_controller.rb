@@ -4,7 +4,9 @@ class MoviesController < ApplicationController
 
   def show
     @movie=Movie.find(params[:id])
-      @data = HTTParty.get "https://api.themoviedb.org/3/movie/#{@movie.tmdb_num}?api_key=#{$TMDB_API_KEY}"
+      @movie_data = HTTParty.get "https://api.themoviedb.org/3/movie/#{@movie.tmdb_num}?api_key=#{$TMDB_API_KEY}"
+      @movie_images_data = HTTParty.get "https://api.themoviedb.org/3/movie/#{@movie.tmdb_num}/images?api_key=#{$TMDB_API_KEY}"
+      @movie_casts_data = HTTParty.get "https://api.themoviedb.org/3/movie/#{@movie.tmdb_num}/casts?api_key=#{$TMDB_API_KEY}"
   end
 
   def create
@@ -16,7 +18,7 @@ class MoviesController < ApplicationController
     if @movie.save
       redirect_to admins_movies_path, notice: 'Movie was successfully created.'
     else
-      render :edit
+      redirect_to admins_movies_path, notice: 'Failed to create a movie'
     end
   end
 

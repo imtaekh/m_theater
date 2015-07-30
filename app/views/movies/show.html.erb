@@ -1,13 +1,47 @@
-<h1><%=@movie.title%></h1>
+
+
+<div class="full_screen_background hidden_div">
+  <div class="full_screen_center">
+    <div class="full_screen_inside">
+    </div>
+    <button class='close'>Close</button>
+  </div>
+</div>
+
 <section class="movie_show">
   <div class="left_side">
-  <%= image_tag "https://image.tmdb.org/t/p/w185#{@movie.tmdb_poster}" %>
+  <%= image_tag "https://image.tmdb.org/t/p/w185#{@movie.tmdb_poster}", class:"backdrop_image",id:"#{@movie.tmdb_poster}",data_width:"300" %><br>
+  <%= button_tag "Watch Trailer",class:"trailer",id:"#{@movie.youtube_num}" unless @movie.youtube_num == ""%>
   </div>
   <div class="body">
-    <% unless @data["tagline"] == "" %>
-    <h2 class="tagline">"<%=@data["tagline"]%>"</h2>
+    <h1><%=@movie.title%></h1>
+    <% unless @movie_data["tagline"] == "" %>
+    <h2 class="tagline">"<%=@movie_data["tagline"]%>"</h2>
     <% end %>
     <h3>Overview</h3>
-    <p><%=@data["overview"]%></p>
+    <p><%=@movie_data["overview"]%></p>
+    <h3>Genres:
+      <small>
+        <% @movie_data["genres"].each do |genres| %>
+        <%= (genres==@movie_data["genres"][-1])?("#{genres["name"]}"):("#{genres["name"]},  ") %>
+        <% end %>
+      </small>
+    </h3>
+    <h3>Casts</h3>
+      <div>
+      <% for i in 0...6 do %>
+        <div class="casts">
+          <%= image_tag "https://image.tmdb.org/t/p/w45#{@movie_casts_data['cast'][i]['profile_path']}" %>
+          <p><strong><%= "#{@movie_casts_data['cast'][i]['name']}" %></strong><small> as <br><%= "#{@movie_casts_data['cast'][i]['character']}" %></small></p>
+        </div>
+      <% end %>
+      <div>
+    <h3>Images</h3>
+      <div>
+      <% for i in 0...6 do %>
+        <%= image_tag "https://image.tmdb.org/t/p/w185#{@movie_images_data['backdrops'][i]['file_path']}", class:"backdrop_image",id:"#{@movie_images_data['backdrops'][i]['file_path']}",data_width:"1000" %>
+      <% end %>
+      <div>
   </div>
 </section>
+<%= javascript_include_tag 'public'%>

@@ -21,15 +21,21 @@
     </ul>
   </nav>
 </header>
+
 <div class="yield">
-  <h3 class="flash">
-    <% flash.each do |k, v| %>
-      <%= v %>
-    <% end %>
-  <h3>
+<% flash.each do |k, v| %>
+  <h3 class="flash"><%= v %><h3>
+<% end %>
 <%= yield %>
 </div>
-
+<footer>
+  <p>M Cinemas. © Copyright 2015 Imtaek Hong.<p>
+  <div class="line"></div>
+  <%= image_tag "facebook.png", class: "footer_icon" %>
+  <%= image_tag "instagram.png", class: "footer_icon" %>
+  <%= image_tag "twitter.png", class: "footer_icon" %>
+</footer>
 
 </body>
 </html>
+<%= javascript_include_tag 'public'%>

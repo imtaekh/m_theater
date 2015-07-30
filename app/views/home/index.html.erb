@@ -1,5 +1,4 @@
-<h1>Home#index</h1>
-
+<section clss="home_index">
 <h2>Playing Now</h2>
 <% @playing_now.each do |movie| %>
   <%= link_to (image_tag "https://image.tmdb.org/t/p/w185#{movie.tmdb_poster}"), movie_path(movie) %>
@@ -9,26 +8,4 @@
 <% @comming_soon.each do |movie| %>
     <%= link_to (image_tag "https://image.tmdb.org/t/p/w185#{movie.tmdb_poster}"), movie_path(movie) %>
 <% end %>
-
-
-<!--
-<div id="myAJAX"></div>
-<script>
-var myDiv;
-$(document).ready(function(){
-  myDiv= document.getElementById("myAJAX");
-<% @movies.each do |movie| %>
-  $.ajax({
-    url:"https://api.themoviedb.org/3/movie/<%=movie.tmdb_num%>?api_key=<%=$TMDB_API_KEY%>",
-    method: "GET"
-  }).done(function(myData){
-    $(myDiv).append("<img src='https://image.tmdb.org/t/p/w185" + myData["poster_path"] +"/'><br>");
-    console.log(myData["original_title"]);
-  }).error(function(){
-    console.log("something went wrong");
-  });
-<% end %>
-
-
-});
-</script> -->
+</section>
