@@ -6,4 +6,7 @@ class ShowTime < ActiveRecord::Base
   has_many :seats
   has_many :movie_type, through: :movie
   has_many :theater_type, through: :theater
+  def available_ticket_count
+    self.theater.seats_array.split(/,/).count-self.seats.select{|hash| hash[:ticket_id]!=nil}.count
+  end
 end

@@ -42,7 +42,7 @@
 <% valid_dates_array=""%>
   <input type="hidden" name="movie_id" value="<%= params[:movie_id] %>">
   <input type="hidden" name="theater" value="<%= params[:theater] %>">
-  <div  class="form_table">
+  <div class="form_table">
     <table>
     <% dates=params[:dates].split(/,/) %>
     <% dates.each do |date_string| %>

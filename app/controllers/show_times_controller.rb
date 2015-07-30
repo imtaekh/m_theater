@@ -83,7 +83,7 @@ class ShowTimesController < ApplicationController
           end
         end
       end # end for for
-      render :action => "create_by_movie"
+      redirect_to admins_show_times_path, notice: "Show times succefully created"
     else # else for if params["check"]
       redirect_to root_path
     end # end for if params["check"]

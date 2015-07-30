@@ -1,0 +1,31 @@
+<section class="buy_ticket choose_movie_or_date">
+
+<h1> Choose a Movie or a Date </h1>
+<table>
+  <tr>
+    <td>
+      <div class="select_panel select_movie">
+        <h2>Movies</h2>
+        <% @movie_array.each do |movie| %>
+        <div class="movie_list">
+          <%= image_tag "https://image.tmdb.org/t/p/w185#{movie.tmdb_poster}"%><br>
+          <%= form_tag '/tickets/choose_date', method: :get, class:"manage_movie" do %>
+            <%= button_tag "#{movie.title}", name:"movie_id", value:"#{movie.id}",class:"ticket_button" %>
+          <% end %>
+        </div>
+        <% end %>
+      </div>
+    </td>
+    <td>
+      <div class="select_panel select_date">
+        <h2>Dates</h2>
+        <% for i in 0...$period %>
+          <% date=Date.today+i %>
+          <%= form_tag '/tickets/choose_movie', method: :get, class:"manage_movie" do %>
+            <%= button_tag "#{date.strftime("%Y-%m-%d")}", name:"date", value:"#{date.strftime("%Y-%m-%d")}",class:"ticket_button" %>
+          <% end %>
+        <% end %>
+      </div>
+    </td>
+</table>
+</section>

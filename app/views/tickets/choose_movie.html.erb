@@ -1,0 +1,33 @@
+<section class="buy_ticket choose_movie">
+<!-- <%= params %> -->
+      <div class="select_panel select_movie">
+        <h2>Movies Available on <%= @date_at.strftime("%Y-%m-%d") %></h2>
+        <% @movie_array.each do |movie| %>
+        <table class="movie_list">
+          <tr>
+            <td>
+              <%= image_tag "https://image.tmdb.org/t/p/w185#{movie.tmdb_poster}"%>
+            </td>
+
+            <td>
+              <div class="time_list">
+
+                  <p><%=movie.title%></p>
+              <% @show_times.each do |show_time| %>
+                <% if show_time.movie_id == movie.id%>
+
+                  <%= form_tag '/tickets/choose_seats', method: :get, class:"manage_movie" do %>
+                    <%= button_tag "#{show_time.time_at.strftime("%H:%M")} (#{show_time.available_ticket_count})", name:"show_time_id", value:"#{show_time.id}", class:"time_button" %>
+                  <% end %>
+
+
+                <% end %>
+              <% end %>
+            </div>
+            </td>
+          </tr>
+
+        </table>
+        <% end %>
+      </div>
+</section>

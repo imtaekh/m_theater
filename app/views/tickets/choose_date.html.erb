@@ -1,0 +1,40 @@
+<section class="buy_ticket choose_date">
+<h1> Choose a Date </h1>
+<table>
+  <tr>
+    <td>
+      <div class="select_panel select_movie">
+        <h2>Selected Movie</h2>
+          <div class="movie_list">
+          <%= image_tag "https://image.tmdb.org/t/p/w185#{@movie.tmdb_poster}"%><br>
+
+            <%= "#{@movie.title}" %>
+
+        </div>
+      </div>
+    </td>
+    <td>
+      <div class="select_panel select_date">
+        <table class="time_table">
+            <% for i in 0...$period %>
+              <tr>
+                <td>
+                  <% date=Date.today+i %>
+                  <p class="date_list"><%= date.strftime("%Y-%m-%d") %></p>
+                </td>
+                <td>
+                  <% @show_times.each do |show_time| %>
+                    <% if date.strftime("%Y-%m-%d") == show_time.time_at.strftime("%Y-%m-%d")%>
+                      <%= form_tag '/tickets/choose_seats', method: :get, class:"manage_movie" do %>
+                        <%= button_tag "#{show_time.time_at.strftime("%H:%M")} (#{show_time.available_ticket_count})", name:"show_time_id", value:"#{show_time.id}", class:"time_button" %>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+        </table>
+      </div>
+    </td>
+</table>
+</section>

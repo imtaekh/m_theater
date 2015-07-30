@@ -4,9 +4,9 @@ class MoviesController < ApplicationController
 
   def show
     @movie=Movie.find(params[:id])
-      @movie_data = HTTParty.get "https://api.themoviedb.org/3/movie/#{@movie.tmdb_num}?api_key=#{$TMDB_API_KEY}"
-      @movie_images_data = HTTParty.get "https://api.themoviedb.org/3/movie/#{@movie.tmdb_num}/images?api_key=#{$TMDB_API_KEY}"
-      @movie_casts_data = HTTParty.get "https://api.themoviedb.org/3/movie/#{@movie.tmdb_num}/casts?api_key=#{$TMDB_API_KEY}"
+    @movie_data = HTTParty.get "https://api.themoviedb.org/3/movie/#{@movie.tmdb_num}?api_key=#{$TMDB_API_KEY}"
+    @movie_images_data = HTTParty.get "https://api.themoviedb.org/3/movie/#{@movie.tmdb_num}/images?api_key=#{$TMDB_API_KEY}"
+    @movie_casts_data = HTTParty.get "https://api.themoviedb.org/3/movie/#{@movie.tmdb_num}/casts?api_key=#{$TMDB_API_KEY}"
   end
 
   def create

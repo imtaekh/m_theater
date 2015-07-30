@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'tickets/choose_movie_or_date', as: :buy_ticket_step1
+
+  get 'tickets/choose_movie', as: :buy_ticket_step1_1
+
+  get 'tickets/choose_date', as: :buy_ticket_step1_2
+
+  get 'tickets/choose_seats', as: :buy_ticket_step2
+
+  get 'tickets/create'
+
   $TMDB_API_KEY = ENV["TMDB_API_KEY"]
 
 

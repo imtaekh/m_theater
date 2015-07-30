@@ -125,15 +125,88 @@ footer p{
   transform: translate(-50%, -50%);
   width: 1000px;
 }
+.buy_ticket{
+  text-align: center;
+}
+
+.buy_ticket table {
+  width: 100%;
+}
+.buy_ticket table td{
+    vertical-align: top;
+}
+.select_panel{
+  display: inline-block;
+  width: 370px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(100, 100, 100, 0.3);
+
+}
+.buy_ticket .movie_list{
+  margin: 10px;
+  display: inline-block;
+  width: 150px;
+}
+.buy_ticket .movie_list img{
+  width: 98%;
+}
 
 
 
+.buy_ticket .ticket_button{
+  width: 100%;
+  overflow: auto;
+}
 
 
+.buy_ticket .choose_date .time_button{
+  border: none;
+  background-color: rgba(0,0,0,0);
+  width:20%;
+}
+.choose_date form{
+  display: inline-block;
+}
+.choose_movie form{
+  display: inline-block;
+}
+.choose_date .select_movie{
+  width: 200px;
+}
+.choose_date .select_date{
+  width: 540px;
+}
+.choose_date .select_date .time_table{
+  text-align: left;
+}
+.choose_date .select_date .date_list{
+  width: 100px;
+}
+.choose_date .select_date .date_list{
+  width: 90px;
+  margin: 2px;
+}
+.choose_date .select_date td{
+  padding:10px 0;
+}
 
+.choose_movie .select_panel{
+  width: 95%;
+}
 
+.choose_movie .select_movie .time_list{
+  padding: 0 10px;
+  text-align: left;
+  width: 200px;
+}
+.choose_movie .select_movie .movie_list{
+  width: 350px;
+}
 
-
+.choose_movie .movie_list img{
+  width: 120px;
+}
 
 
 
@@ -260,7 +333,13 @@ section{
   float: left;
   margin: 0 10px;
 }
-
+.movie_show .left_side button{
+  width: 100%;
+  margin: 5px 0;
+}
+.movie_show .ticket_button{
+  color: red;
+}
 .check_create_by_movie .slot{
   width: 120px;
   overflow-x: auto;
