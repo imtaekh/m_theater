@@ -147,6 +147,8 @@ header .logo{
   width:35%;
 }
 .manage_movie .form_button{
+  height: 23px;
+  overflow: hidden;
   text-align: center;
   padding: 10px;
 }

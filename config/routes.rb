@@ -11,7 +11,6 @@ Rails.application.routes.draw do
 
   resources :movies
   get 'show_times/by_movie'=>'show_times#check_create_by_movie'
-  post 'show_times/by_movie'=>'show_times#create_by_movie', as: :create_show_times_by_movie
 
   # get 'movies/index'
   # get 'movies/show'

@@ -12,6 +12,7 @@ class MoviesController < ApplicationController
     @movie = Movie.new(movie_params)
     @movie.title=data["original_title"]
     @movie.tmdb_poster=data["poster_path"]
+    @movie.runtime=data["runtime"]
     if @movie.save
       redirect_to admins_movies_path, notice: 'Movie was successfully created.'
     else

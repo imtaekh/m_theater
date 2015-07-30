@@ -19,6 +19,7 @@ console.log("JS is running");
     //show_times
     $(".add_show_times_movie").click(function(){
       $("#new_show_times_movie"+this.id).slideToggle("slow", function(){});
+      $(".js_form").html("");
     });
     $(".new_show_times_get_dates").click(function(event){
       console.log($("#theater_option"+this.id).val());
@@ -63,5 +64,13 @@ console.log("JS is running");
       }else{
         alert("Error: Invaild form");
       }
+    });
+    $(".theater_select").mousedown(function(){
+      console.log("test");
+      $(".js_form").html("");
+    });
+    $(".change_proof").mousedown(function(){
+      console.log("check");
+      $(".change_proof_button").slideUp("slow");
     });
   });

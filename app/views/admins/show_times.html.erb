@@ -37,7 +37,7 @@
           </div>
           <div class="form_item">
             <label>Theater : </label>
-            <select name="theater" id="theater_option<%= movie.id %>">
+            <select name="theater" class="theater_select" id="theater_option<%= movie.id %>">
               <option>Select</option>
               <% @theaters.each do |theater| %>
   					    <option><%= theater.name %></option>
@@ -45,14 +45,14 @@
             </select>
           </div>
           <div class="form_item">
-          Runtime+Padding(30mins):<span class="runtime"> <%= (movie.runtime+30)/60 %>:<%= ((movie.runtime+30)%60<10)?("0#{(movie.runtime+30)%60}"):((movie.runtime+30)%60) %></span>
+            Runtime+Padding(30mins):<span class="runtime"> <%= (movie.runtime+30)/60 %>:<%= ((movie.runtime+30)%60<10)?("0#{(movie.runtime+30)%60}"):((movie.runtime+30)%60) %></span>
           </div>
           <div class="form_button">
             <input type="button" class="new_show_times_get_dates" id="<%= movie.id %>" value="NEXT">
           </div>
           <%= form_tag '/show_times/by_movie', method: :get do %>
           <input type="hidden" name="movie_id" value="<%= movie.id %>">
-          <div id="form_show_times_movie<%= movie.id %>"></div>
+          <div class="js_form"id="form_show_times_movie<%= movie.id %>"></div>
 
           <% end %>
         </div>
