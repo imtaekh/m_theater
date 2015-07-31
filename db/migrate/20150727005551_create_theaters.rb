@@ -2,8 +2,8 @@ class CreateTheaters < ActiveRecord::Migration
   def change
     create_table :theaters do |t|
       t.string :name
-      t.integer :row_max_num
-      t.integer :column_max_num
+      t.string :row_max_num
+      t.string :column_max_num
       t.text :seats_array
       t.boolean :is_available
       t.date :date_from

@@ -207,6 +207,9 @@ footer p{
 .choose_movie .movie_list img{
   width: 120px;
 }
+.left{
+  text-align: left;
+}
 .buy_ticket .select_seats{
   display: inline-block;
 }

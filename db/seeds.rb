@@ -53,10 +53,10 @@ movies.each do |movie|
   Movie.create(title:movie[0],tmdb_num:movie[1],youtube_num:movie[2],tmdb_poster:data["poster_path"],runtime:data["runtime"],date_from:today+movie[3],date_to:today+movie[3]+30)
 end
 theaters=[
-  ["1","4","7","1A,1B,1C,1D,1E,1F,1G,2A,2B,2C,2D,2E,2F,2G,3A,3B,3C,3D,3E,3F,3G,4A,4B,4C,4D,4E,4F,4G"],
-  ["2","3","7","1A,1B,1C,1D,1E,1F,1G,2A,2B,2C,2D,2E,2F,2G,3A,3B,3C,3D,3E,3F,3G"],
-  ["3","4","6","1A,1B,1C,1D,1E,1F,2A,2B,2C,2D,2E,2F,3A,3B,3C,3D,3E,3F,4A,4B,4C,4D,4E,4F"],
-  ["4","3","6","1A,1B,1C,1D,1E,1F,2A,2B,2C,2D,2E,2F,3A,3B,3C,3D,3E,3F"]
+  ["1","4","G","1A,1B,1C,1D,1E,1F,1G,2A,2B,2C,2D,2E,2F,2G,3A,3B,3C,3D,3E,3F,3G,4A,4B,4C,4D,4E,4F,4G"],
+  ["2","3","G","1A,1B,1C,1D,1E,1F,1G,2A,2B,2C,2D,2E,2F,2G,3A,3B,3C,3D,3E,3F,3G"],
+  ["3","4","F","1A,1B,1C,1D,1E,1F,2A,2B,2C,2D,2E,2F,3A,3B,3C,3D,3E,3F,4A,4B,4C,4D,4E,4F"],
+  ["4","3","F","1A,1B,1C,1D,1E,1F,2A,2B,2C,2D,2E,2F,3A,3B,3C,3D,3E,3F"]
 ]
 theaters.each do |theater|
   Theater.create(name:theater[0],row_max_num:theater[1],column_max_num:theater[2],seats_array:theater[3])
