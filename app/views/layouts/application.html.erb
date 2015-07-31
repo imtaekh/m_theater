@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>M Theater</title>
-  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -16,7 +16,7 @@
       <li><%= link_to "Buy Ticket", buy_ticket_step1_path %></li>
       <% if current_user %>
         <li><%= link_to "My Page", user_path(current_user) %></li>
-        <li><%= link_to "Logout", session_path(current_user), :method=>:delete %></li>  
+        <li><%= link_to "Logout", session_path(current_user), :method=>:delete %></li>
       <% else %>
         <li><%= link_to "Sign In", new_user_path %></li>
         <li><a href="#" class="login">Login</a></li>
