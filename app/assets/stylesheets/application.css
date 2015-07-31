@@ -207,8 +207,19 @@ footer p{
 .choose_movie .movie_list img{
   width: 120px;
 }
-
-
+.buy_ticket .select_seats{
+  display: inline-block;
+}
+.select_seats .seat{
+  padding: 10px;
+  margin: 2px;
+}
+.select_seats .taken{
+  background-color: rgba(100, 100, 100, 0.3);
+}
+.select_seats .available{
+  background-color: rgba(150, 255, 100, 0.6);
+}
 
 
 .manage_movie .data_body{

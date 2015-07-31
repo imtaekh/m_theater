@@ -45,6 +45,8 @@ class TicketsController < ApplicationController
   end
 
   def choose_seats
+    @show_time=ShowTime.find(params[:show_time_id])
+    @theater=@show_time.theater
   end
 
   def create
