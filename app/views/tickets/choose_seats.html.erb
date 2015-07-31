@@ -1,30 +1,50 @@
 <section class="buy_ticket choose_seats">
   <h1> Choose seats </h1>
-  <%= @show_time.id %>
+  <!-- <%= @show_time.available_ticket_count %> -->
+  <table>
+    <tr>
+      <td class="seat_demo">
   <div class="select_seats">
+  <div class="screen">
+    SCREEN
+  </div>
     <table>
-      <tr>
-      <% count={} %>
-      <% for i in 1..30 %>
-        <% count[:i]=0 %>
-        <% for j in "A".."Z" %>
-          <% seat=@show_time.seats.find_by(num:"#{i}#{j}")%>
-          <% if seat !=nil %>
-            <% count[:i]+=1 %>
-            <% if seat.ticket_id %>
-              <td><div class="seat taken"><%= "#{i}#{j}" %></div></td>
-            <% else %>
-              <td><div class="seat available"><%= "#{i}#{j}" %></div></td>
-            <% end %>
+      <% for i in "1"..@theater.row_max_num %>
+        <tr>
+          <% for j in "A"..@theater.column_max_num %>
+            <td>
+              <% seat=@show_time.tickets.find_by(seat_num:"#{i}#{j}")%>
+              <% if !@theater.seats_array.split(",").include?("#{i}#{j}") %>
+                <div class="seat"></div>
+              <% elsif seat ==nil %>
+                <div class="seat available", id=<%="#{i}#{j}"%>><%= "#{i}#{j}" %></div>
+              <% else %>
+                <div class="seat taken"><%= "#{i}#{j}" %></div>
+              <% end %>
+            </td>
           <% end %>
-        <% end %>
-        <% if count[:i] > 0 %>
-          </tr><tr>
-        <% end %>
-        <% if i == 30 %>
-          </tr>
-        <% end %>
+        </tr>
       <% end %>
   </table>
   </div>
+  </td>
+
+    <td class="ticket_num">
+      <h3><%=@show_time.movie.title%></h3>
+      <p>Date : <%=@show_time.time_at.strftime("%Y-%m-%d")%></p>
+      <p>Time : <%=@show_time.time_at.strftime("%H:%M")%></p>
+      <p>Seats : </p>
+      <p id="selected_seats"></p>
+      <h2>Total : <span id="total_num">0</span></h2>
+
+      <%= form_tag '/tickets', method: :post, class:"manage_movie" do %>
+
+        <!-- <%= hidden_field_tag "ticket_array",id:"form_array" %> -->
+        <input type="hidden" name="show_time_id" value="<%= @show_time.id%>">
+        <input type="hidden" name="ticket_array" id="form_array" value="">
+        <%= button_tag "BUY TICKETS!",class:"ticket_button" %>
+      <% end %>
+    </td>
+  </tr>
+</table>
 </section>

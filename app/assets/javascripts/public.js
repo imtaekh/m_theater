@@ -12,6 +12,28 @@ $(".full_screen_center").click(function(){
 });
 
 $(".flash").click(function(){
-  console.log("test");
   $(this).slideUp();
+});
+$(".available").click(function(){
+  if($(this).hasClass("selected")){
+    $(this).removeClass("selected");
+    array=$("#selected_seats")[0].innerHTML;
+    array=array.split(",");
+    index=array.indexOf(this.id);
+    if (index > -1) {
+      array.splice(index, 1);
+    }
+    array.pop();
+    if(array.length>0){
+      $("#selected_seats")[0].innerHTML=array.toString()+",";
+    } else{
+      $("#selected_seats")[0].innerHTML=array.toString();
+    }
+    $("#total_num")[0].innerHTML=Number($("#total_num")[0].innerHTML)-1;
+  } else {
+    $(this).addClass("selected");
+    $("#selected_seats").append(this.id+",");
+    $("#total_num")[0].innerHTML=Number($("#total_num")[0].innerHTML)+1;
+  }
+    $("#form_array")[0].value=$("#selected_seats")[0].innerHTML;
 });

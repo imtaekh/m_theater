@@ -1,25 +1,18 @@
 Rails.application.routes.draw do
+
+  root 'home#index'
+  resources :users
+  resources :movies
+
   get 'tickets/choose_movie_or_date', as: :buy_ticket_step1
-
   get 'tickets/choose_movie', as: :buy_ticket_step1_1
-
   get 'tickets/choose_date', as: :buy_ticket_step1_2
-
   get 'tickets/choose_seats', as: :buy_ticket_step2
-
-  get 'tickets/create'
+  post 'tickets'=>'tickets#create'
 
   $TMDB_API_KEY = ENV["TMDB_API_KEY"]
 
-
-
-
   get 'show_times/create'
-
-
-  root 'home#index'
-
-  resources :movies
   get 'show_times/by_movie'=>'show_times#check_create_by_movie'
 
   # get 'movies/index'
@@ -29,19 +22,11 @@ Rails.application.routes.draw do
   # patch 'movies/:id'=>'movies#update', as: :update_movie
   # get 'movies/destroy'
 
-
-
   get 'admins/movies'
   get 'admins/show_times'
   get 'admins/manage'
   get 'admins/statistics'
   get 'admins/orders'
-
-  get 'movies/index'
-  get 'movies/show'
-  get 'movies/create'
-  get 'movies/update'
-  get 'movies/destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

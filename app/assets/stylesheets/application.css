@@ -87,6 +87,18 @@ nav a:hover{
 nav a:active{
   background-color: rgba(255, 0, 0, 0.3);
 }
+.admin{
+  bottom:-30px;
+}
+.admin a{
+  padding: 5px;
+}
+.admin a:hover{
+  background-color: rgba(0, 0, 255, 0.3);
+}
+.admin a:active{
+  background-color: rgba(0, 0, 255, 0.3);
+}
 header .logo{
   height: 60px;
 }
@@ -198,7 +210,7 @@ footer p{
 .choose_movie .select_movie .time_list{
   padding: 0 10px;
   text-align: left;
-  width: 200px;
+  width: 220px;
 }
 .choose_movie .select_movie .movie_list{
   width: 350px;
@@ -213,15 +225,57 @@ footer p{
 .buy_ticket .select_seats{
   display: inline-block;
 }
-.select_seats .seat{
+.screen {
+  height: 20px;
+  margin-bottom: 20px;
+  color: white;
+  background-color: rgba(100, 100, 100, 0.5);
+}
+.buy_ticket .seat_demo{
+  width: 600px;
+}
+.buy_ticket .ticket_num{
+  text-align: left;
   padding: 10px;
-  margin: 2px;
+  width: 220px;
+}
+.select_seats .seat{
+  padding: 3px;
+  margin: 1px;
+  font-size: 12px;
 }
 .select_seats .taken{
   background-color: rgba(100, 100, 100, 0.3);
 }
 .select_seats .available{
   background-color: rgba(150, 255, 100, 0.6);
+}
+.select_seats .selected{
+  background-color: rgba(255, 255, 100, 0.6);
+}
+
+.order_completed{
+  text-align:center;
+}
+.ticket_demo{
+  text-align:left;
+  width:400px;
+  margin:10px auto;
+  background-color:rgba(0,0,0,0.1);
+  border-bottom-right-radius:10px
+}
+.ticket_demo .poster{
+  width:80px;
+  margin-right:10px
+}
+.ticket_demo p{
+  margin: 5px;
+}
+.ticket_demo td{
+  padding:0;
+}
+.ticket_demo h3{
+  margin: 5px 0;
 }
 
 

@@ -10,14 +10,19 @@
 <body>
 <header>
   <%= image_tag "logo.png", class: "logo" %>
-  <nav>
+  <nav class="public">
     <ul>
-      <li><%= link_to "Home", root_path %></li>
-      <li><%= link_to "Movies", admins_movies_path %></li>
-      <li><%= link_to "Show Times", admins_show_times_path %></li>
+      <li><%= link_to "Movies", root_path %></li>
       <li><%= link_to "Buy Ticket", buy_ticket_step1_path %></li>
       <li><a href="#">Sign In</a></li>
       <li><a href="#">Login</a></li>
+    </ul>
+  </nav>
+  <nav class="admin">
+    <ul>
+      <li>Admin:</li>
+      <li><%= link_to "Movies", admins_movies_path %></li>
+      <li><%= link_to "Show Times", admins_show_times_path %></li>
     </ul>
   </nav>
 </header>

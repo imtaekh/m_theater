@@ -1,2 +1,20 @@
-<h1>Tickets#create</h1>
-<p>Find me in app/views/tickets/create.html.erb</p>
+<section class="order_completed">
+<h1>Thank You! See you soon!</h1>
+<% @order.tickets.each do |ticket| %>
+<div class="ticket_demo">
+  <table>
+    <tr>
+      <td>
+        <%= image_tag "https://image.tmdb.org/t/p/w185#{ticket.movie.tmdb_poster}", class:"poster" %>
+      </td>
+      <td>
+        <H3><%= ticket.movie.title %></H3>
+        <h3><small>Date :</small> <%=ticket.show_time.time_at.strftime("%Y-%m-%d")%><small>, Time :</small> <%=ticket.show_time.time_at.strftime("%H:%M")%></h3>
+        <p>Seat Num : <%=ticket.seat_num %></p>
+      <td>
+    </tr>
+  </table>
+</div>
+<% end %>
+<div>Total :<%=@order.tickets.count%> tickets <div>
+</section>
