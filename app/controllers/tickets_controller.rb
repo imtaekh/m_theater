@@ -1,4 +1,6 @@
 class TicketsController < ApplicationController
+  before_action :authenticate
+
   $period=7
   def choose_movie_or_date
     @date_from=Time.now+3600
@@ -73,6 +75,7 @@ class TicketsController < ApplicationController
       t=Ticket.create(seat_num:seat_num,show_time_id:@show_time.id)
       @order.tickets << t
     end
+    current_user.orders << @order
   end
 end
 #s=ShowTime.where("time_at >= '2015-7-30 12:00' and time_at <= '2015-7-31 24:00' and movie_id = '3'")

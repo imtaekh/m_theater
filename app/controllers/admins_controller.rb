@@ -1,4 +1,6 @@
 class AdminsController < ApplicationController
+  before_action :admin_only
+
   def movies
     @movies=Movie.order('title ASC')
     @movie=Movie.new

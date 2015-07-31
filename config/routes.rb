@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   root 'home#index'
-  resources :users
+  resources :users, :only => [:new, :create, :show]
+  resources :sessions, :only => [:new, :create, :destroy]
   resources :movies
 
   get 'tickets/choose_movie_or_date', as: :buy_ticket_step1

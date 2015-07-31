@@ -1,7 +1,8 @@
 <section class="buy_ticket choose_movie">
+
+    <h1 class="left">Movies Available on <%= @date_at.strftime("%Y-%m-%d") %></h1>
 <!-- <%= params %> -->
       <div class="select_panel select_movie">
-        <h2>Movies Available on <%= @date_at.strftime("%Y-%m-%d") %></h2>
         <div class="left">
           <% @movie_array.each do |movie| %>
           <table class="movie_list">

@@ -1,4 +1,6 @@
 class ShowTimesController < ApplicationController
+  before_action :admin_only
+  
   def check_create_by_movie
     @movie = Movie.find(params[:movie_id])
     @theater = Theater.find_by(name:params[:theater])

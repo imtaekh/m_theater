@@ -37,3 +37,10 @@ $(".available").click(function(){
   }
     $("#form_array")[0].value=$("#selected_seats")[0].innerHTML;
 });
+$(".login").click(function(){
+  console.log(this);
+  $(".login_form").slideToggle();
+
+
+
+});
