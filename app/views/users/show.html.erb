@@ -1,3 +1,29 @@
 <section class="my_page">
   <h1>My Page</h1>
+  <% @orders.each do |order| %>
+  <div class="ticket_demo">
+    <table>
+      <tr>
+        <td>
+          <%= image_tag "https://image.tmdb.org/t/p/w185#{order.tickets.first.movie.tmdb_poster}", class:"poster" %>
+        </td>
+        <td>
+          <H3><%= order.tickets.first.movie.title %></H3>
+          <h3><small>Date :</small> <%=order.tickets.first.show_time.time_at.strftime("%Y-%m-%d")%><small>, Time :</small> <%=order.tickets.first.show_time.time_at.strftime("%H:%M")%></h3>
+          <p>Seats :
+            <% order.tickets.each do |ticket|%>
+              <% if ticket == order.tickets.first %>
+                <%= "#{ticket.seat_num}" %>
+              <% else %>
+                <%= ", #{ticket.seat_num}" %>
+              <% end %>
+            <% end %>
+          </p>
+          <p>Total : <%=order.tickets.count %> tickets</p>
+        <td>
+      </tr>
+    </table>
+  </div>
+ <% end %>
+
 </section>

@@ -22,7 +22,7 @@
         <% for i in 0...$period %>
           <% date=Date.today+i %>
           <%= form_tag '/tickets/choose_movie', method: :get, class:"manage_movie" do %>
-            <%= button_tag "#{date.strftime("%Y-%m-%d")}", name:"date", value:"#{date.strftime("%Y-%m-%d")}",class:"ticket_button" %>
+            <%= button_tag "#{date.strftime("%Y-%m-%d")}", name:"date", value:"#{date.strftime("%Y-%m-%d")}",class:"ticket_button date_button" %>
           <% end %>
         <% end %>
       </div>
