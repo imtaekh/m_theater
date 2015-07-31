@@ -74,13 +74,6 @@ class ShowTimesController < ApplicationController
       for i in 0...@show_times_array.length
         @show_times_array[i][@show_times_array[i].keys[0]].each do |time|
           show_time=ShowTime.create(time_at:time[:show_time],movie_id:@movie.id,theater_id:@theater.id)
-          p show_time
-          p seats_array=show_time.theater.seats_array.split(",")
-          puts
-          seats_array.each do |seat|
-            s=Seat.create(num:seat,show_time_id:show_time.id)
-            p s
-          end
         end
       end # end for for
       redirect_to admins_show_times_path, notice: "Show times succefully created"

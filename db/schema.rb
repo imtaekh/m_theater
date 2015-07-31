@@ -65,17 +65,6 @@ ActiveRecord::Schema.define(version: 20150727012811) do
     t.datetime "updated_at",   null: false
   end
 
-  create_table "seats", force: :cascade do |t|
-    t.string   "num"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.integer  "ticket_id"
-    t.integer  "show_time_id"
-  end
-
-  add_index "seats", ["show_time_id"], name: "index_seats_on_show_time_id", using: :btree
-  add_index "seats", ["ticket_id"], name: "index_seats_on_ticket_id", using: :btree
-
   create_table "show_times", force: :cascade do |t|
     t.datetime "time_at"
     t.boolean  "is_confirmed"
@@ -105,27 +94,28 @@ ActiveRecord::Schema.define(version: 20150727012811) do
 
   create_table "theaters", force: :cascade do |t|
     t.string   "name"
-    t.boolean  "is_available"
-    t.integer  "num_of_seats"
+    t.integer  "row_max_num"
+    t.integer  "column_max_num"
     t.text     "seats_array"
+    t.boolean  "is_available"
     t.date     "date_from"
     t.date     "date_to"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "tickets", force: :cascade do |t|
     t.boolean  "is_canceled"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.integer  "order_id"
-    t.integer  "seat_id"
     t.integer  "price_id"
+    t.integer  "show_time_id"
   end
 
   add_index "tickets", ["order_id"], name: "index_tickets_on_order_id", using: :btree
   add_index "tickets", ["price_id"], name: "index_tickets_on_price_id", using: :btree
-  add_index "tickets", ["seat_id"], name: "index_tickets_on_seat_id", using: :btree
+  add_index "tickets", ["show_time_id"], name: "index_tickets_on_show_time_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
@@ -140,11 +130,9 @@ ActiveRecord::Schema.define(version: 20150727012811) do
   end
 
   add_foreign_key "orders", "users"
-  add_foreign_key "seats", "show_times"
-  add_foreign_key "seats", "tickets"
   add_foreign_key "show_times", "movies"
   add_foreign_key "show_times", "theaters"
   add_foreign_key "tickets", "orders"
   add_foreign_key "tickets", "prices"
-  add_foreign_key "tickets", "seats"
+  add_foreign_key "tickets", "show_times"
 end

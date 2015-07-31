@@ -8,7 +8,7 @@
 # rails g model show_time time_at:datetime is_confirmed:boolean is_canceled:boolean
 # rails g model movie title:string tmdb_num:string tmdb_poster:string youtube_num:string runtime:integer date_from:date date_to:date is_confirmed:boolean is_canceled:boolean
 # rails g model movie_type type:string
-# rails g model theater name:string num_of_seats:integer seats_array:text is_available:boolean date_from:date date_to:date
+# rails g model theater name:string row_max_num:integer column_max_num:integer seats_array:text is_available:boolean date_from:date date_to:date
 # rails g model theater_type type:string
 # rails g migration add_user_to_orders user:references
 # rails g migration add_order_to_tickets order:references
@@ -20,73 +20,6 @@
 # rails g migration add_theater_to_show_times theater:references
 # rails g migration create_join_table_movies_movie_types movies movie_types
 # rails g migration create_join_table_theaters_theater_types theaters theater_types
-
-
-# #models
-
-# class User < ActiveRecord::Base
-#   has_secure_password
-#   validates :email, presence: true, uniqueness: true
-#   validates :first_name, presence: true
-#   has_many :orders
-# end
-#
-# class Order < ActiveRecord::Base
-#   has_one :user
-#   has_many :tickets
-#   has_many :seats, through: :tickets
-#   has_many :show_times, through: :seats
-#   has_many :movies, through: :show_times
-#   has_many :theaters, through: :show_times
-# end
-#
-# class Ticket < ActiveRecord::Base
-#   has_one :order
-#   has_one :seat
-#   has_one :price
-#   has_many :show_times, through: :seats
-#   has_many :movies, through: :show_times
-#   has_many :theaters, through: :show_times
-# end
-#
-# class Seat < ActiveRecord::Base
-#   has_one :ticket
-#   has_one :show_time
-#   has_one :movie, through: :show_time
-#   has_one :theater, through: :show_time
-# end
-#
-# class Show_time < ActiveRecord::Base
-#   has_one :movie
-#   has_one :theater
-#   has_many :movie_type, through: :movie
-#   has_many :theater_type, through: :theater
-# end
-#
-# class Movie < ActiveRecord::Base
-#   has_many :show_times
-#   has_and_belongs_to_many :movie_types
-#   has_many :seats, through: :show_times
-#   has_many :tickets, through: :seats
-# end
-#
-# class Movie_type < ActiveRecord::Base
-#   has_and_belongs_to_many :movie
-#   has_many :show_times, through: :movies
-#   has_many :seats, through: :show_times
-#   has_many :tickets, through: :seats
-# end
-#
-# class Theater < ActiveRecord::Base
-#   has_many :show_times
-#   has_and_belongs_to_many :theater_types
-#   has_many :seats, through: :show_times
-#   has_many :tickets, through: :seats
-# end
-#
-# class Theater_type < ActiveRecord::Base
-#   has_and_belongs_to_many :theater
-# end
 
 # user=User.new
 # user.email="admin@mtheater.com"
@@ -120,11 +53,11 @@ movies.each do |movie|
   Movie.create(title:movie[0],tmdb_num:movie[1],youtube_num:movie[2],tmdb_poster:data["poster_path"],runtime:data["runtime"],date_from:today+movie[3],date_to:today+movie[3]+30)
 end
 theaters=[
-  ["1","1A,1B,1C,1D,1E,1F,1G,2A,2B,2C,2D,2E,2F,2G,3A,3B,3C,3D,3E,3F,3G,4A,4B,4C,4D,4E,4F,4G"],
-  ["2","1A,1B,1C,1D,1E,1F,1G,2A,2B,2C,2D,2E,2F,2G,3A,3B,3C,3D,3E,3F,3G"],
-  ["3","1A,1B,1C,1D,1E,1F,2A,2B,2C,2D,2E,2F,3A,3B,3C,3D,3E,3F,4A,4B,4C,4D,4E,4F"],
-  ["4","1A,1B,1C,1D,1E,1F,2A,2B,2C,2D,2E,2F,3A,3B,3C,3D,3E,3F"]
+  ["1","4","7","1A,1B,1C,1D,1E,1F,1G,2A,2B,2C,2D,2E,2F,2G,3A,3B,3C,3D,3E,3F,3G,4A,4B,4C,4D,4E,4F,4G"],
+  ["2","3","7","1A,1B,1C,1D,1E,1F,1G,2A,2B,2C,2D,2E,2F,2G,3A,3B,3C,3D,3E,3F,3G"],
+  ["3","4","6","1A,1B,1C,1D,1E,1F,2A,2B,2C,2D,2E,2F,3A,3B,3C,3D,3E,3F,4A,4B,4C,4D,4E,4F"],
+  ["4","3","6","1A,1B,1C,1D,1E,1F,2A,2B,2C,2D,2E,2F,3A,3B,3C,3D,3E,3F"]
 ]
 theaters.each do |theater|
-  Theater.create(name:theater[0],seats_array:theater[1])
+  Theater.create(name:theater[0],row_max_num:theater[1],column_max_num:theater[2],seats_array:theater[3])
 end
