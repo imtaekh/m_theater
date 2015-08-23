@@ -1,3 +1,5 @@
+$TMDB_API_KEY = ENV["TMDB_API_KEY"]
+
 # #rails commands
 
 # rails g model user email:string password_digest:string first_name:string last_name:string contact_number:string credit:float access_level:integer
@@ -21,22 +23,20 @@
 # rails g migration create_join_table_movies_movie_types movies movie_types
 # rails g migration create_join_table_theaters_theater_types theaters theater_types
 
+admin=User.new
+admin.email="admin@admin.com"
+admin.password="admin"
+admin.first_name="admin"
+admin.access_level=10
+admin.save
+
 user=User.new
-user.email="admin@mtheater.com"
-user.password="admin"
-user.first_name="admin"
-user.access_level=10
+user.email="imtaekh@gmail.com"
+user.password="imtaekh"
+user.first_name="Imtaek"
+user.last_name="Hong"
 user.save
 
-# names = ["Addison", "Ben", "Christine", "Chloe", "Cris", "Dane", "David", "Emily", "Imtaek", "Jack", "Jesse", "Jonathan", "Pericles", "Peter", "Philippe", "Sergio", "Simon", "Tali", "Tavo", "Trevor"]
-# names.each do |name|
-#   user=User.new
-#   user.email="#{name}@mtheater.com"
-#   user.password="#{name}"
-#   user.first_name="#{name}"
-#   user.access_level=0
-#   user.save
-# end
 
 movies = [
   ["Jurassic World","135397","lP-sUUUfamw",-50],
@@ -61,21 +61,3 @@ theaters=[
 theaters.each do |theater|
   Theater.create(name:theater[0],row_max_num:theater[1],column_max_num:theater[2],seats_array:theater[3])
 end
-
-
-# "1A,1B,1C,1D,1F,1G,1H,1I,1J,1K,1L,
-# 2A,2B,2C,2D,2F,2G,2H,2I,2J,2K,2L,2N,2O,2P,2Q,
-# 3A,3B,3C,3D,3F,3G,3H,3I,3J,3K,3L,3N,3O,3P,3Q,
-# 4A,4B,4C,4D,4F,4G,4H,4I,4J,4K,4L,4N,4O,4P,4Q,
-# 6A,6B,6C,6D,6F,6G,6H,6I,6J,6K,6L,6N,6O,6P,6Q,
-# 7A,7B,7C,7D,7F,7G,7H,7I,7J,7K,7L,7N,7O,7P,7Q,
-# 8A,8B,8C,8D,8F,8G,8H,8I,8J,8K,8L,8N,8O,8P,8Q,
-# 9A,9B,9C,9D,9F,9G,9H,9I,9J,9K,9L,9N,9O,9P,9Q,
-# 10A,10B,10C,10D,10F,10G,10H,10I,10J,10K,10L,10N,10O,10P,10Q,
-# 11A,11B,11C,11D,11F,11G,11H,11I,11J,11K,11L,11N,11O,11P,11Q,
-# 12A,12B,12C,12D,12F,12G,12H,12I,12J,12K,12L,12N,12O,12P,12Q,
-# 14A,14B,14C,14D,14F,14G,14H,14I,14J,14K,14L,14N,14O,14P,14Q,
-# 15A,15B,15C,15D,15F,15G,15H,15I,15J,15K,15L,15N,15O,15P,15Q,
-# 16A,16B,16C,16D,16F,16G,16H,16I,16J,16K,16L,16N,16O,16P,16Q,
-# 17A,17B,17C,17D,17F,17G,17H,17I,17J,17K,17L,17N,17O,17P,17Q,
-# 18A,18B,18C,18D,18F,18G,18H,18I,18J,18K,18L,18N,18O,18P,18Q,"

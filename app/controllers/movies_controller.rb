@@ -1,7 +1,11 @@
 class MoviesController < ApplicationController
   before_action :authenticate, except: [:index, :show ]
 
+  $TMDB_API_KEY = ENV["TMDB_API_KEY"]
+
   def index
+    @movies=Movie.all
+    render json: @movies
   end
 
   def show

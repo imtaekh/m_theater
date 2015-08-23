@@ -11,8 +11,6 @@ Rails.application.routes.draw do
   get 'tickets/choose_seats', as: :buy_ticket_step2
   post 'tickets'=>'tickets#create'
 
-  $TMDB_API_KEY = ENV["TMDB_API_KEY"]
-
   get 'show_times/create'
   get 'show_times/by_movie'=>'show_times#check_create_by_movie'
 
