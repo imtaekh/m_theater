@@ -8,10 +8,11 @@
 </head>
 <body>
 <header>
-  <%= image_tag "logo.png", class: "logo" %>
-  <nav class="public">
+  <%= link_to (image_tag "logo.png", class: "logo"), root_path %>
+  <nav class="public_menu">
     <ul>
-      <li><%= link_to "Movies", root_path %></li>
+      <li><%= link_to "M Cinema", m_cinema_path %></li>
+      <li><%= link_to "Movies", m_cinema_path %></li>
       <li><%= link_to "Buy Ticket", buy_ticket_step1_path %></li>
       <% if current_user %>
         <li><%= link_to "My Page", user_path(current_user) %></li>
@@ -23,7 +24,7 @@
     </ul>
   </nav>
   <% if current_user && current_user.access_level > 0 %>
-  <nav class="admin">
+  <nav class="admin_menu">
     <ul>
       <li>Admin:</li>
       <li><%= link_to "Movies", admins_movies_path %></li>
@@ -53,7 +54,7 @@
 <%= yield %>
 </div>
 <footer>
-  <p>M Cinemas. © Copyright 2015 Imtaek Hong.<p>
+  <p>M Cinema. © Copyright 2015 Imtaek Hong.<p>
   <div class="line"></div>
   <%= image_tag "facebook.png", class: "footer_icon" %>
   <%= image_tag "instagram.png", class: "footer_icon" %>

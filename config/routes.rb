@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   root 'home#index'
+  get 'm_cinema'=>'home#m_cinema', as: :m_cinema
+
   resources :users, :only => [:new, :create, :show]
   resources :sessions, :only => [:new, :create, :destroy]
   resources :movies
