@@ -2,55 +2,61 @@
 <html>
 <head>
   <title>M Cinemas</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 <header>
-  <%= link_to (image_tag "logo.png", class: "logo"), root_path %>
-  <nav class="public_menu">
-    <ul>
-      <li><%= link_to "M Cinema", m_cinema_path %></li>
-      <li><%= link_to "Movies", m_cinema_path %></li>
-      <li><%= link_to "Buy Ticket", buy_ticket_step1_path %></li>
-      <% if current_user %>
-        <li><%= link_to "My Page", user_path(current_user) %></li>
-        <li><%= link_to "Logout", session_path(current_user), :method=>:delete %></li>
-      <% else %>
-        <li><%= link_to "Sign In", new_user_path %></li>
-        <li><a href="#" class="login">Login</a></li>
+  <div class="menu_div">
+    <%= link_to (image_tag "logo.png", class: "logo"), root_path %>
+    <nav class="public_menu">
+      <ul>
+        <li><%= link_to "M Cinema", m_cinema_path %></li>
+        <li><%= link_to "Movies", m_cinema_path %></li>
+        <li><%= link_to "Buy Ticket", buy_ticket_step1_path %></li>
+        <% if current_user %>
+          <li><%= link_to "My Page", user_path(current_user) %></li>
+          <li><%= link_to "Logout", session_path(current_user), :method=>:delete %></li>
+        <% else %>
+          <li><%= link_to "Sign In", new_user_path %></li>
+          <li><a href="#" class="login">Login</a></li>
+        <% end %>
+      </ul>
+    </nav>
+    <% if current_user && current_user.access_level > 0 %>
+    <nav class="admin_menu">
+      <ul>
+        <li>Admin:</li>
+        <li><%= link_to "Movies", admins_movies_path %></li>
+        <li><%= link_to "Show Times", admins_show_times_path %></li>
+      </ul>
+    </nav>
+    <% end %>
+    <div class="login_form">
+      <%= form_tag sessions_path do %>
+        <div class="field">
+          <%= label_tag :email %><br>
+          <%= text_field_tag :email, params[:email] %>
+        </div>
+        <div class="field">
+          <%= label_tag :password %><br>
+          <%= password_field_tag :password %>
+        </div>
+        <div class="field actions"><%= submit_tag "Log in" %></div>
       <% end %>
-    </ul>
-  </nav>
-  <% if current_user && current_user.access_level > 0 %>
-  <nav class="admin_menu">
-    <ul>
-      <li>Admin:</li>
-      <li><%= link_to "Movies", admins_movies_path %></li>
-      <li><%= link_to "Show Times", admins_show_times_path %></li>
-    </ul>
-  </nav>
-  <% end %>
-  <div class="login_form">
-    <%= form_tag sessions_path do %>
-      <div class="field">
-        <%= label_tag :email %><br>
-        <%= text_field_tag :email, params[:email] %>
-      </div>
-      <div class="field">
-        <%= label_tag :password %><br>
-        <%= password_field_tag :password %>
-      </div>
-      <div class="field actions"><%= submit_tag "Log in" %></div>
+    </div>
+  </div>
+  <div class="message_div">
+    <% flash.each do |k, v| %>
+      <h3 class="flash"><%= v %></h3>
     <% end %>
   </div>
 </header>
 
 <div class="yield">
-<% flash.each do |k, v| %>
-  <h3 class="flash"><%= v %><h3>
-<% end %>
+
 <%= yield %>
 </div>
 <footer>

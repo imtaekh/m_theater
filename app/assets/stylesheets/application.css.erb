@@ -13,10 +13,6 @@
  *= require_tree .
  *= require_self
  */
-.flash{
-   padding: 10px;
-   background-color: rgba(255, 0, 0, 0.5);
- }
 iframe{
   border: 0;
 }
@@ -49,19 +45,20 @@ a:link{
  text-decoration: none;
 }
 body{
+  font-family: 'Open Sans', sans-serif;
   background: #ffffff url(<%= asset_path 'layout_bg.png' %>) no-repeat left top;
 }
 header{
-  position: relative;
   width: 800px;
-  height: 70px;
-  margin: 10px auto 50px auto;
-  border-bottom: 1px solid red;
+  margin: 10px auto;
 }
-.yield{
-  overflow: auto;
-  width: 800px;
-  margin: 0 auto;
+header .logo{
+  height: 60px;
+}
+.menu_div{
+  position: relative;
+  height: 70px;
+  border-bottom: 1px solid red;
 }
 nav{
   text-align: right;
@@ -100,8 +97,19 @@ nav a:active{
 .admin_menu a:active{
   background-color: rgba(0, 0, 255, 0.3);
 }
-header .logo{
-  height: 60px;
+.message_div{
+  overflow: auto;
+  height:40px;
+}
+.flash{
+ margin: 2px;
+ padding: 5px 20px;
+ background-color: rgba(255, 0, 0, 0.5);
+}
+.yield{
+  overflow: auto;
+  width: 800px;
+  margin: 0 auto;
 }
 footer{
   margin: 0 auto;
