@@ -35,6 +35,7 @@ user.email="imtaekh@gmail.com"
 user.password="imtaekh"
 user.first_name="Imtaek"
 user.last_name="Hong"
+user.access_level=0
 user.save
 
 

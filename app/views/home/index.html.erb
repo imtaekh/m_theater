@@ -1,11 +1,20 @@
-<section clss="home_index">
-<h2>Playing Now</h2>
-<% @playing_now.each do |movie| %>
-  <%= link_to (image_tag "https://image.tmdb.org/t/p/w185#{movie.tmdb_poster}"), movie_path(movie) %>
-<% end %>
-
-<h2>Coming Soon</h2>
-<% @comming_soon.each do |movie| %>
+<section>
+  <div class="banner_frame">
+    <div class="banner_container">
+      <div class="banner_div"><%= link_to (image_tag "banners/banner_001.png", class: "banner_image"),"#" %></div>
+      <div class="banner_div"><%= link_to (image_tag "banners/banner_002.png", class: "banner_image"),"#" %></div>
+      <div class="banner_div"><%= link_to (image_tag "banners/banner_003.png", class: "banner_image"),"#" %></div>
+      <div class="banner_div"><%= link_to (image_tag "banners/banner_004.png", class: "banner_image"),"#" %></div>
+    </div>
+  </div>
+  <h2>Playing Now</h2>
+  <% @playing_now.each do |movie| %>
     <%= link_to (image_tag "https://image.tmdb.org/t/p/w185#{movie.tmdb_poster}"), movie_path(movie) %>
-<% end %>
+  <% end %>
+
+  <h2>Coming Soon</h2>
+  <% @comming_soon.each do |movie| %>
+      <%= link_to (image_tag "https://image.tmdb.org/t/p/w185#{movie.tmdb_poster}"), movie_path(movie) %>
+  <% end %>
+
 </section>
