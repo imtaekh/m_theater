@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>M Cinemas</title>
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -14,7 +14,7 @@
     <nav class="public_menu">
       <ul>
         <li><%= link_to "M Cinema", m_cinema_path %></li>
-        <li><%= link_to "Movies", m_cinema_path %></li>
+        <li><%= link_to "Movies", movies_path %></li>
         <li><%= link_to "Buy Ticket", buy_ticket_step1_path %></li>
         <% if current_user %>
           <li><%= link_to "My Page", user_path(current_user) %></li>

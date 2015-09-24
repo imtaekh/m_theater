@@ -13,6 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+ h2{
+   margin: 5px 0;
+   font-weight: 700;
+ }
+ article{
+   margin: 20px 0;
+   padding: 5px;
+   background-color: rgba(0, 0, 0, 0.1);
+ }
 iframe{
   border: 0;
 }
@@ -73,17 +83,19 @@ nav li{
   display: inline-block;
 }
 nav a{
-  padding: 10px 10px 0 10px;
-  -moz-transition: background-color 1s;
-  -ms-transition: background-color 1s;
-  -o-transition: background-color 1s;
-  -webkit-transition: background-color 1s;
+  padding: 5px 10px 0 10px;
+  transition: background-color 1s;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 nav a:hover{
   background-color: rgba(255, 0, 0, 0.3);
 }
 nav a:active{
   background-color: rgba(255, 0, 0, 0.3);
+}
+.home .poster{
+  width: 100px;
 }
 .admin_menu{
   bottom:-30px;
@@ -99,7 +111,6 @@ nav a:active{
 }
 .message_div{
   overflow: auto;
-  height:40px;
 }
 .flash{
  margin: 2px;
@@ -477,21 +488,13 @@ footer p{
   border:  1px solid black;
 }
 .banner_frame{
-  width: 780px;
-  height: 266px;
   overflow: hidden;
 }
 .banner_container{
-  left: 0;
-  width:2000px;
 }
 .banner_div{
   float: left;
-  position:relative;
-  width: 780px;
-  height: 266px;
 }
 .banner_image{
-  width:780px;
-  position: absolute;
+  position: relative;
 }

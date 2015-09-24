@@ -14,14 +14,14 @@ class ApplicationController < ActionController::Base
   def authenticate
     unless logged_in?
       flash[:error] = "Please login first."
-      redirect_to root_path
+      redirect_to :back
     end
   end
 
   def admin_only
     unless logged_in? && current_user.access_level >0
       flash[:error] = "Admin Only"
-      redirect_to root_path
+      redirect_to :back
     end
   end
 end
