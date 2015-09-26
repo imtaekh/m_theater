@@ -43,7 +43,7 @@ class TicketsController < ApplicationController
 
     @date_from=Time.now
     @date_to=Date.today+$period
-    @show_times=ShowTime.where("time_at >= '#{@date_from.year}-#{@date_from.mon}-#{@date_from.day} #{@date_from.hour+1}:#{@date_from.min}' and time_at <= '#{@date_to.year}-#{@date_to.mon}-#{@date_to.day} 24:00' and movie_id = '#{params[:movie_id]}'")
+    @show_times=ShowTime.where("time_at >= '#{@date_from.year}-#{@date_from.mon}-#{@date_from.day} #{@date_from.hour}:#{@date_from.min}' and time_at <= '#{@date_to.year}-#{@date_to.mon}-#{@date_to.day} 24:00' and movie_id = '#{params[:movie_id]}'")
     redirect_to buy_ticket_step1_path, notice:"This Movie is not available yet" if @show_times.count==0;
     @show_times=@show_times.sort_by{|hash| hash[:time_at]}
   end
