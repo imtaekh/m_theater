@@ -9,8 +9,8 @@ class SessionsController < ApplicationController
 
       redirect_to root_path, notice: "Welcome #{user.first_name}!"
     else
-      flash.now.alert ="invalid login credentials"
-      render 'new'
+      flash[:error] = "invalid login credentials"
+      redirect_to :back
     end
   end
 

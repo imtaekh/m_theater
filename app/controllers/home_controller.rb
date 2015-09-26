@@ -18,4 +18,8 @@ class HomeController < ApplicationController
 
   def m_cinema
   end
+
+  def login
+  end
+
 end
