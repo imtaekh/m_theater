@@ -1,4 +1,6 @@
-console.log("JS is running");
+$(document).on('ready page:load', function () {
+  console.log("manage.js");
+
   $(function(){
     $(".movie").click(function(){
       if ($("#update"+this.id)[0].style.display == "block"){
@@ -74,3 +76,4 @@ console.log("JS is running");
       $(".change_proof_button").slideUp("slow");
     });
   });
+});
