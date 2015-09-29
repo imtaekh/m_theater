@@ -153,7 +153,14 @@ footer p{
 .actions{
   text-align:center;
 }
-
+.about article{
+  padding: 30px;
+  border-radius: 15px;
+  background: -webkit-linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.1));/* Safari 5.1-6.0 */
+  background: -o-linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.1));/* For Opera 11.6-12.0 */
+  background: -moz-linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.1));/* For Firefox 3.6-15 */
+  background: linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.1));/* Standard syntax */
+}
 .sign_up td{
     vertical-align: top;
 }
@@ -162,13 +169,30 @@ footer p{
   height: 150px;
   overflow: scroll;
 }
-.login_form{
-  display: none;
-  position:absolute;
-  right:1px;
-  top:80px;
-  background-color:rgba(0,20,0,0.3);
-  border-bottom-left-radius: 10px;
+.login form{
+  padding: 30px 0;
+  margin: 50px auto 0;
+  background: -webkit-linear-gradient(rgba(255, 0, 0, 0.5),rgba(0,255,0,0.5));/* Safari 5.1-6.0 */
+  background: -o-linear-gradient(rgba(255, 0, 0, 0.5),rgba(0,255,0,0.5));/* For Opera 11.6-12.0 */
+  background: -moz-linear-gradient(rgba(255, 0, 0, 0.5),rgba(0,255,0,0.5));/* For Firefox 3.6-15 */
+  background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.1));/* Standard syntax */
+  width: 400px;
+  border-radius: 20px;
+}.login label{
+  font-size: 18px;
+  display: block;
+  text-align: center;
+  margin: 3px;
+}
+.login .field{
+  width:200px;
+  margin: 0 auto;
+}
+.login input{
+  width: 100%;
+}
+.login input[type="submit"]{
+  width: 100px;
 }
 .full_screen_background{
   position: fixed;
