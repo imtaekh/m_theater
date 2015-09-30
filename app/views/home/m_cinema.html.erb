@@ -27,6 +27,14 @@
   <article>
     <h3>Entity Relationship Diagrams</h3>
     <%= image_tag "erd.png" %>
+    <ul>
+      <li>User has many Orders</li>
+      <li>Order have many Tickets (in case a user buy several tickets on one order)</li>
+      <li>User has many Tickets through Order</li>
+      <li>Movie has many Show times, Theater also has many Show tiems<br>
+        Show time is a join table of Moive and Show time</li>
+      <li>Show time has many Tickets(as many as the number of seats on Theater)</li>
+    </ul>
   </article>
 
   <article class="imtaek">
