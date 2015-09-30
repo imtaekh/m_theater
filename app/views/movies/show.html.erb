@@ -8,7 +8,7 @@
 
 <section class="movie_show">
   <div class="left_side">
-  <%= image_tag "https://image.tmdb.org/t/p/w185#{@movie.tmdb_poster}", class:"backdrop_image",id:"#{@movie.tmdb_poster}",data_width:"300" %><br>
+  <%= image_tag "https://image.tmdb.org/t/p/w185#{@movie.tmdb_poster}",id:"#{@movie.tmdb_poster}",data_width:"300" %><br>
   <%= button_tag "Watch Trailer", class:"trailer",id:"#{@movie.youtube_num}" unless @movie.youtube_num == ""%>
   <%= form_tag '/tickets/choose_date', method: :get, class:"manage_movie" do %>
     <%= button_tag "Buy Ticket", name:"movie_id", value:"#{@movie.id}",class:"ticket_button" %>
@@ -59,5 +59,7 @@
             <% end %>
           </div>
         <% end %>
+
+
   </div>
 </section>
