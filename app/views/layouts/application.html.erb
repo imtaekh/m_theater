@@ -13,7 +13,7 @@
     <%= link_to (image_tag "logo.png", class: "logo"), root_path %>
     <nav class="public_menu">
       <ul>
-        <li><%= link_to "M Cinema", m_cinema_path %></li>
+        <li><%= link_to "About", m_cinema_path %></li>
         <li><%= link_to "Movies", movies_path %></li>
         <li><%= link_to "Buy Ticket", buy_ticket_step1_path %></li>
         <% if current_user %>
@@ -48,6 +48,8 @@
 </div>
 <footer>
   <p>M Cinema. © Copyright 2015 Imtaek Hong.<p>
+  <p><a href="http://imtaekh.github.io/portfolio/">http://imtaekh.github.io/portfolio/</a><p>
+
   <div class="line"></div>
   <%= image_tag "facebook.png", class: "footer_icon" %>
   <%= image_tag "instagram.png", class: "footer_icon" %>
